@@ -1,9 +1,16 @@
 <div class="wrap">
 	<?php screen_icon('plugins'); ?>
+
+	<!-- Begin feedback notice. Used for the new Plugin's interface. Remove once the recollection of feedback is closed. -->
+	<div class="updated notice">
+    <p>Web Publishing has redesigned the Plugin interface. We would like to receive your feedback! <a class="button button-primary button-large" style="color: white; text-decoration: none; pointer: cursor;" href="https://goo.gl/forms/sjuLfJ34NhfI3r2D2">Submit feedback</a></p>
+	</div>
+	<!-- End feedback notice -->
+
 	<h2><?php echo stripslashes($this->options['plugins_page_title']); ?></h2>
 	<p><?php echo stripslashes($this->options['plugins_page_description']); ?></p>
 
-	<!-- Category Menu starts here -->
+	<!-- Begin Category Menu -->
 	<div id="current-theme" class="wp-filter plugin-categories">
 
 
@@ -14,10 +21,10 @@
 			</div>
 
 			<!--<div class="type categories">-->
-				<!-- This section displays the "Choose category to display" text, which we want to remove for simplicity. -->
+				<!-- This section displays the "Choose category to display" text, which we want to remove to clean the UI -->
 				<!--<span><?php //_e('Choose category to display:', 'wmd_prettyplugins'); ?></span>-->
 
-				<!-- Display the links of the categories -->
+				<!-- Display the categories -->
 				<ul id="plugin-categories-list" class="filter-links">
 					<li><a href="#" class="all"><?php _e('All', 'wmd_prettyplugins'); ?></a></li>
 					<?php
@@ -25,6 +32,7 @@
 						echo '<li><a href="#" class="'.$plugins_category_id.'">'.$plugins_category.'</a></li>';
 					?>
 				</ul>
+
 
 			<!--</div>
 			<div class="type sort">-->
@@ -43,8 +51,9 @@
 			<div class="search-form">
 				<!-- Delete the text "Search" so as to clean the interface -->
 				<!--<span><?php //_e('Search:', 'wmd_prettyplugins'); ?> </span>-->
-
-				<input type="search" id="theme-search-input" class="plugin-search-input" name="s" placeholder="<?php _e('Search installed plugins...', 'wmd_prettyplugins'); ?>" value="">
+				<!-- Label for accessibility purposes-->
+				<label class="screen-reader-text" for="theme-search-input">Search installed plugins</label>
+				<input type="search" id="theme-search-input" class="plugin-search-input" name="s" placeholder="<?php _e('Start typing to search', 'wmd_prettyplugins'); ?>" value="">
 			</div>
 
 		</div>
@@ -55,7 +64,8 @@
 		foreach($plugins as $plugin_path => $plugin) {
 		?>
 
-		<div data-id="id-<?php echo $plugin['ListID']; ?>" data-type="<?php echo (isset($plugin['Categories'])) ? implode(' ', $plugin['Categories']) : 'all'; echo ($plugin['isActive'] == 1) ? ' active' : ' inactive'; ?>" class="available-theme available-plugin<?php echo ($plugin['isActive'] == 1) ? ' active-plugin' : ' inactive-plugin'; ?>">
+		<!-- Individual plugin card -->
+		<div data-id="id-<?php echo $plugin['ListID']; ?>" data-type="<?php echo (isset($plugin['Categories'])) ? implode(' ', $plugin['Categories']) : 'all'; echo ($plugin['isActive'] == 1) ? ' active' : ' inactive'; ?>" class="available-plugin<?php echo ($plugin['isActive'] == 1) ? ' active-plugin' : ' inactive-plugin'; ?>">
 			<div class="available-plugin-inner">
 				<a href="<?php echo $plugin['ActionLink']; ?>" class="screenshot">
 					<img src="<?php echo $plugin['ScreenShot']; ?>" alt="<?php echo $plugin['Name']; ?>">
@@ -64,44 +74,33 @@
 
 					<div class="material-plugin-wrapper">
 						<h3><?php echo $plugin['Name']; ?></h3>
-						<div class="action-links">
-							<ul style="margin: 0;">
+						<p>
+							<?php
+								// strip plugin's excessive text to avoid text overflow
+								$description_trimmed = wp_trim_words( $plugin['Description'], $num_words = 35, $more = null );
+								echo $description_trimmed ;
+							?>
+					</p>
 
-								<li>
-									<p>
-										<?php
-											// strip plugin's excessive text to avoid text overflow
-											$description_trimmed = wp_trim_words( $plugin['Description'], $num_words = 35, $more = null );
-											echo $description_trimmed ;
-										?>
-								</p>
-								</li>
 
-								<?php if($this->options['plugins_hide_descriptions']) { ?>
-								<li>
-									<a style="color: white; text-decoration: none;" href="#" class="theme-detail plugin-details"><?php _e('Details', 'wmd_prettyplugins') ?></a>
-								</li>
-								<?php } ?>
-								<?php
-								foreach ($plugin['Actions'] as $action)
-									echo '<li>'.$action.'</li>';
-								?>
-							</ul>
-						</div>
-						<div class="material-button-wrapper">
+						<!-- action links -->
+						<div class="material-button-wrapper action-links">
+
+							<!-- Activate/Deactivate Plugin -->
+							<a class="button-primary button button-large material-button" href="<?php echo $plugin['ActionLink']; ?>" class="<?php echo $plugin['ActionLinkClass']; ?> activate-deactivate" title="<?php echo $plugin['ActionLinkText'];?>"><?php echo $plugin['ActionLinkText'];?></a>
 
 							<!-- Learn More Button -->
 							<?php if(isset($plugin['PluginLink'])) { ?>
-								<div class="material-button button button-large " style="margin-right: 15px;">
-										<a style="color: #000; text-decoration: none;" href="<?php echo $plugin['PluginLink']; ?>" target="_blank" title="<?php _e('Learn more about the plugin', 'wmd_prettyplugins') ?>"><?php echo stripslashes($this->options['plugins_link_label']); ?></a>
-								</div>
+								<a class="material-button button button-large" style="color: #000;" href="<?php echo $plugin['PluginLink']; ?>" target="_blank" title="<?php _e('Learn more about the plugin', 'wmd_prettyplugins') ?>"><?php echo stripslashes($this->options['plugins_link_label']); ?></a>
 							<?php } ?>
 
-							<!-- Activate/Deactivate Plugin -->
-							<div class="button button-primary button-large material-button" style="float: right;">
-								<a style="color: white; text-decoration: none; pointer: cursor;" href="<?php echo $plugin['ActionLink']; ?>" class="<?php echo $plugin['ActionLinkClass']; ?> activate-deactivate" title="<?php echo $plugin['ActionLinkText'];?>"><?php echo $plugin['ActionLinkText'];?></a>
-							</div>
-						</div>
+							<!-- Additional action links thrown by some plugins. Currently off.  -->
+							<?php
+							// foreach ($plugin['Actions'] as $action)
+							//	echo '<span class="button button-large"'.$action.'</span>';
+							?>
+
+					</div>
 				</div>
 			</div>
 		</div>
