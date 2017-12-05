@@ -1,8 +1,8 @@
 /*
 * Theme Name: Material
 * Author: Jose Hernandez
-* Version: 1.0
-* Version date: November 6, 2017
+* Version: 1.11
+* Version date: December 4, 2017
 */
 
 /* Ensure that the plugin's name doesn't display with a high line-height. Some themes modify the css on the Dashboard. */
@@ -130,13 +130,14 @@
 /* Format the plugin card. */
 .available-plugin {
 	display: inline-block;
+	width: 300px;
 	padding: 0 0 0 0;
   margin: 30px 30px 0 0;
   height: 475px;
   background-color: white;
 	overflow: hidden;
 	vertical-align: top;
-	width: 300px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Render the screenshot properly */
@@ -230,7 +231,7 @@
 
 /* Render the image of deactivated plugins in grayscale. */
 .inactive-plugin img{
-  filter: grayscale(60%) !important;
+  filter: grayscale(100%) !important;
 }
 
 /* Render the image of deactivated plugins in grayscale when hovered. */
@@ -241,11 +242,6 @@
 /* Format the individual plugin wrapper */
 .plugin-wrapper {
   padding: 10px;
-}
-
-/* Set smooth shadows to the plugin card */
-.available-plugin {
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Format the text contained in the plugin card*/
@@ -291,7 +287,7 @@
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	padding: 15px;
+	padding: 15px 15px 0 15px;
 	width: 270px;
 	display: block;
 	background: #fff;
@@ -301,6 +297,7 @@
 /* Format the pretty Plugins Action Link Button */
 .material-button{
 	margin-right: 10px !important;
+	margin-bottom: 15px !important;
 }
 
 /* Remove any text decoration from the action links outputed by the plugin. */

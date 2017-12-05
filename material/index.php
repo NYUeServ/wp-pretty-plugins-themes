@@ -94,10 +94,10 @@
 								<a class="material-button button button-large" style="color: #000;" href="<?php echo $plugin['PluginLink']; ?>" target="_blank" title="<?php _e('Learn more about the plugin', 'wmd_prettyplugins') ?>"><?php echo stripslashes($this->options['plugins_link_label']); ?></a>
 							<?php } ?>
 
-							<!-- Additional action links thrown by some plugins. Currently off.  -->
+							<!-- Additional action links thrown by some plugins. -->
 							<?php
-							// foreach ($plugin['Actions'] as $action)
-							//	echo '<span class="button button-large"'.$action.'</span>';
+							foreach ($plugin['Actions'] as $action)
+							echo '<span class="material-button button button-large"><a href="' . $plugin['Actions'] . '">' . $action . '</a></span>';
 							?>
 
 					</div>
