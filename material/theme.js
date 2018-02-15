@@ -31,6 +31,8 @@ jQuery(document).ready(function() {
     return false;
   });
 
+  // Execute when the user clicks on the category link of the plugin card
+
 
   jQuery('#toplevel_page_pretty-plugins li a').click(function(e) {
     var filterType = get_url_parameter(jQuery(this).attr('href'));

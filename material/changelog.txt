@@ -1,0 +1,12 @@
+== Changelog ==
+
+= 1.11 = Release date: December 5th, 2017
+* NEW FEATURES
+* Additional action links displayed by some plugins are now displayed in the plugin interface.
+* Deactivated plugins are in black and white, activated plugins are in full color.
+
+* BUG FIXES
+* Modified the CSS styling of the action link buttons.
+
+= 1.0 =
+* First release
