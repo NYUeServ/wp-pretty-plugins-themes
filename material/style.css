@@ -1,0 +1,345 @@
+/*
+* Theme Name: Material
+* Author: Jose Hernandez, Konain Mukadam
+* Version: 1.2
+* Version date: January 31 2019
+*/
+
+/* Ensure that the plugin's name doesn't display with a high line-height. Some themes modify the css on the Dashboard. */
+.material-plugin-wrapper h3{
+	font-size: 1.3em;
+	line-height: 1.3em;
+}
+
+/* Not used, inherited from "Quick Sand" theme
+.plugins-categories {
+	padding: 0 !important;
+}
+*/
+
+/* Adds appropiate space between the categories on the Menu bar  */
+.theme-options li {
+	float: left;
+	padding-right: 10px;
+	margin-right: 10px;
+}
+
+/* Remove the additional space on the last menu item on the bar*/
+.theme-options li:last-child {
+	padding-right: 0;
+	margin-right: 0;
+	border-right: 0;
+}
+
+/* ACTION LINKS */
+	/* Adds appropiate spacing between the action links on the plugin menu card. */
+	.available-plugin .action-links {
+		margin-top: 0px;
+		overflow: hidden;
+		font-weight: 400;
+		margin: 6px 0 0;
+	}
+
+/* Format the action link list items */
+	.action-links li {
+		float: left;
+		padding-right: 10px;
+		margin-right: 10px;
+		border-right: none;
+	}
+
+/* Make the unordered list on the Menu Bar float to the left. */
+.theme-options ul {
+	float: left;
+	margin: 0;
+}
+
+/* Deprecated, used in Quick Sand theme but not on Material. */
+/* .plugins-categories li.active a {
+	color: #d54e21;
+} */
+
+#adminmenu li.toplevel_page_pretty-plugins a.current .wp-menu-image img {
+	opacity: 1;
+}
+
+/* Scale the image to fit the card container */
+.available-plugin-inner a.screenshot img {
+	width: 300px;
+}
+
+/* DEPRECATED
+.available-plugin .themedetaildiv {
+	display: block;
+}
+*/
+
+/* Format the plugin screenshot */
+.available-plugin a.screenshot {
+	background-color: #fff;
+	border-color: #ccc;
+	width: 300px;
+	height: 225px;
+	display: block;
+	border-width: 0px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+/* Format the last action link on the list */
+.available-plugin .action-links li:last-child {
+	padding-right: 0;
+	margin-right: 0;
+	border-right: 0;
+}
+
+/* Format the overall area where the plugin cards are rendered. */
+#availableplugins {
+	width: auto !important;
+	height: auto !important;
+}
+
+#availableplugins, #availableplugins td {
+	border-color: #ddd;
+}
+
+/* Control the opacity of the images of the plugins. */
+#availableplugins .available-plugin img {
+	opacity: 0.9;
+	transition: all 0.4s ease-in-out;
+}
+
+/* Control the text and buttons contained within the plugin card. */
+.available-plugin-inner {
+	opacity: 1;
+	transition: all 0.4s ease-in-out;
+	height: inherit;
+	position: relative;
+}
+
+/* Control the opacity of the plugins. */
+#availableplugins .active-plugin .available-plugin-inner, .available-plugin:hover .available-plugin-inner, #availableplugins .active-plugin img, .available-plugin:hover img {
+	opacity: 1 !important;
+}
+
+/* Control the opacity of the plugins. */
+#availableplugins .active-plugin .screenshot:hover img, #availableplugins .active-plugin .active img {
+	opacity: 0.9 !important;
+}
+
+/* Format the plugin card. */
+.available-plugin {
+	display: inline-block;
+	width: 300px;
+	padding: 0 0 0 0;
+  margin: 30px 30px 0 0;
+  height: 475px;
+  background-color: white;
+	overflow: hidden;
+	vertical-align: top;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Render the screenshot properly */
+.available-plugin .screenshot {
+	position: relative;
+}
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.available-plugin .screenshot .toggle {
+	position: absolute;
+	bottom: -30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #F2F9FC;
+	width: 100%;
+	transition: all 0.4s ease-in-out;
+	border-top:1px solid #ddd;
+	opacity: 0;
+}
+*/
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.active-plugin .screenshot .toggle {
+	background: #fcf7f7;
+}
+*/
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.available-plugin .screenshot .toggle h4 {
+	transition: all 0.2s ease-in-out;
+	margin: 0;
+}
+*/
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.available-plugin .screenshot:hover .toggle, .available-plugin .active .toggle {
+	bottom: 0px;
+	opacity: 1;
+}
+*/
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.available-plugin .active .toggle h4 {
+	color: #D54E21 !important;
+}
+*/
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.available-plugin .action-links a.upgrade {
+	color:#ff0000;
+}
+*/
+
+/* Format the categories on the menu bar. */
+#plugin-categories-list {
+	margin-right: 20px;
+	text-transform: capitalize;
+	/* Remove the line rendered between the categoy list and the status filter area r*/
+	/* border-right: 1px solid #dfdfdf; */
+}
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.plugin-options .type {
+	display: inline-block;
+}
+*/
+
+/* DEPRECATED. Inherited from Quick Sand, but not used in Material.
+.plugin-options .sort {
+	white-space: nowrap;
+}
+*/
+
+/* Format the search box on the menu bar. */
+.search-box span {
+	margin-right: 10px;
+	padding: 3px 5px;
+	max-width: 100%;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.5;
+	color: #999;
+}
+
+/* Format the search box on the menu bar. */
+.plugin-search-input {
+	width:185px;
+	float: none !important;
+}
+
+/* Render the image of deactivated plugins in grayscale. */
+.inactive-plugin img{
+  filter: grayscale(100%) !important;
+}
+
+/* Render the image of deactivated plugins in grayscale when hovered. */
+.inactive-plugin img:hover{
+  filter: grayscale(10%) !important;
+}
+
+/* Format the individual plugin wrapper */
+.plugin-wrapper {
+  padding: 10px;
+}
+
+/* Format the text contained in the plugin card*/
+.material-plugin-wrapper{
+	margin: 20px;
+	font-family: Open Sans, Roboto, PT Sans, Arial, sans-serif;
+}
+
+/* Format the text contained in the plugin card*/
+.material-plugin-wrapper p{
+	font-size: 1em;
+	line-height: 1.6em;
+	color: #666;
+}
+
+/* Format the action links */
+.material-action-link{
+	display: inline-block;
+	color: #333;
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 10px;
+	/* DEPRECATED: background-color: #eee;*/
+	/* DEPRECATED: border-radius: 3px;*/
+}
+
+/* Format the primary action link buttons*/
+.material-primary-action-link{
+	color: #3f51b5;
+}
+
+/* Change the background color of the action link on hover event*/
+.material-action-link:hover{
+	background-color: #eee;
+	color: #3f51b5;
+	transition: all 0.4s ease-in-out;
+}
+
+/* Format the action link buttons on the individual plugin card. */
+.material-button-wrapper {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 15px 15px 0 15px;
+	width: 270px;
+	display: block;
+	background: #fff;
+	border-top: 1px solid #e6e6e6;
+}
+
+/* Format the pretty Plugins Action Link Button */
+.material-button{
+	margin-right: 10px !important;
+	margin-bottom: 15px !important;
+}
+
+/* Remove any text decoration from the action links outputed by the plugin. */
+.material-button a{
+	text-decoration: none;
+	pointer: cursor;
+	color: #000;
+}
+
+/* Format the search form */
+.search-form {
+	width: 215px;
+}
+
+/* Format the plugin counter on the menu bar*/
+.filter-count{
+	float: left;
+	padding: 0;
+	margin-top: 13px;
+	margin-left: 10px;
+}
+
+/* Highlight the current link on the filters at the menu bar */
+.active a {
+	color: #0073aa !important;
+	font-weight: bold;
+	border-bottom: 4px solid #0073aa !important;
+}
+
+/* Make the text of the filter links contrast properly. (Accessibility) */
+.filter-links li>a{
+	color: #000 !important;
+}
+
+@media screen and (max-width: 1500px) {
+	/* Pull the search box to the left when the menu becomes double-sized */
+	.search-form{
+		float: left !important;
+	}
+}
+
+/*Fix for WordPress default button color contrast*/
+.material-button-activate {
+	background: #006799 !important;
+}
