@@ -81,7 +81,7 @@ jQuery(document).ready(function() {
     var filteredDataTemp = jQuery(document.createElement('div')).append(filteredData.clone());
     // Loop through the comment list
     filteredDataTemp.find('.available-plugin').each(function(){
-      if(jQuery(this).find('h3').text().search(new RegExp(filterSearch, "i")) < 0)
+      if(jQuery(this).find(':header').text().search(new RegExp(filterSearch, "i")) < 0)
         filteredDataTemp.find("div[data-id='"+jQuery(this).attr('data-id')+"']").remove();
     });
 
